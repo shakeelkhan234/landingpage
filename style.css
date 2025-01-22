@@ -8,6 +8,11 @@
 html, body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    background-color: #f8f8f8; /* Add background to prevent overflow from showing empty space */
 }
 
 /* General Section */
@@ -23,9 +28,10 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
+    background-color: #fff; /* Add a background to nav */
+    z-index: 100;
 }
 
-/* Part 2 in Navigation */
 .part2 {
     display: flex;
     align-items: center;
@@ -63,23 +69,27 @@ nav button {
     height: 80%;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap; /* Allow for wrapping on smaller screens */
+    justify-content: center;
+    gap: 40px;
 }
 
 .center-part1 {
-    height: 80%;
-    width: 50%;
+    width: 100%;
+    max-width: 600px; /* Limit the width */
+    padding: 20px;
+    text-align: center;
 }
 
 .center-part1 h1 {
     font-size: 60px;
+    margin-bottom: 20px;
 }
 
 .center-part1 p {
     margin-top: 30px;
     margin-bottom: 25px;
     font-size: 20px;
-    width: 95%;
 }
 
 .center-part1 button {
@@ -93,18 +103,20 @@ nav button {
 }
 
 .center-part2 {
-    position: relative;
-    height: 80%;
-    width: 50%;
+    width: 100%;
+    max-width: 600px; /* Limit the width */
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .center-part2 img {
-    position: absolute;
-    padding-bottom: 160px;
-    right: 0%;
-    width: 70%;
+    width: 100%; /* Make image responsive */
+    max-width: 500px; /* Ensure image doesn't overflow */
 }
 
+/* Section 1 Bottom */
 .section1bottom {
     display: flex;
     align-items: center;
@@ -141,7 +153,7 @@ nav button {
 
 /* Container */
 .container {
-    height: 80%;
+    height: auto; /* Allow content to adjust height */
     width: 100%;
     padding: 40px 120px;
     display: flex;
@@ -152,18 +164,19 @@ nav button {
 .elem {
     flex-shrink: 0;
     margin: 30px 0px;
-    height: 250px;
+    height: auto; /* Allow flex item to adjust height */
     width: 48%;
+    max-width: 500px; /* Limit width */
     border: 2px solid black;
     border-radius: 30px;
     box-shadow: 0px 15px 0 black;
     padding: 20px 10px;
     display: flex;
+    flex-direction: column;
 }
 
 .elem-part1 {
-    height: 100%;
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -171,12 +184,11 @@ nav button {
 }
 
 .elem-part2 {
-    height: 100%;
-    width: 50%;
+    width: 100%;
 }
 
 .elem-part2 img {
-    height: 100%;
+    width: 100%;
 }
 
 .elem-part1 h2 {
@@ -213,51 +225,36 @@ nav button {
 
 /* Media Queries for Responsive Design */
 
-/* Mobile Devices: */
+/* Mobile Devices */
 @media (max-width: 768px) {
-    /* Navigation Changes */
     nav {
         flex-direction: column;
         align-items: flex-start;
-        background-color: #f4f4f4; /* background color for mobile */
-    }
-
-    nav h1 {
-        font-size: 24px;
-    }
-
-    nav button {
-        padding: 10px 15px;
-        font-size: 16px;
+        background-color: #fff;
     }
 
     nav .part2 {
         display: none; /* Hide part2 on small screens */
     }
 
-    /* Center Content Adjustments */
     .center {
         flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
-    .center-part1 {
-        width: 100%;
+    .center-part1 h1 {
+        font-size: 40px;
     }
 
-    .center-part2 {
-        width: 100%;
+    .center-part1 button {
+        padding: 16px 30px;
+        font-size: 20px;
     }
 
-    .center-part2 img {
-        position: relative;
-        width: 100%;
-        padding-bottom: 40px;
-    }
-
-    /* Service Section Adjustments */
     .services {
         flex-direction: column;
-        padding: 20px 40px;
+        padding: 20px;
         margin-top: 20px;
     }
 
@@ -266,27 +263,21 @@ nav button {
     }
 
     .services p {
-        font-size: 18px;
+        font-size: 16px;
         width: 100%;
     }
 
-    /* Container Layout Adjustments */
     .container {
-        padding: 20px 40px;
+        padding: 20px;
     }
 
     .elem {
         width: 100%;
         margin-bottom: 20px;
     }
-
-    /* Footer Changes */
-    footer {
-        padding: 20px 0;
-    }
 }
 
-/* Tablets and Larger Devices (768px and above) */
+/* Tablets and Larger Devices (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .center {
         flex-direction: row;
@@ -300,6 +291,11 @@ nav button {
         width: 40%;
     }
 
+    .services {
+        padding: 30px;
+        gap: 40px;
+    }
+
     .services h3 {
         font-size: 50px;
     }
@@ -309,14 +305,10 @@ nav button {
     }
 }
 
-/* Desktop Layout (above 1024px) */
+/* Desktop Layout (1024px and above) */
 @media (min-width: 1024px) {
     .container {
         padding: 40px 120px;
-    }
-
-    .services {
-        padding: 40px 100px;
     }
 
     .elem {
