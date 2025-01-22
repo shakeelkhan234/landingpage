@@ -1,76 +1,88 @@
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:gilroy;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy, sans-serif;
 }
 
 html, body {
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
 }
 
+/* General Section */
 section {
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
     position: relative;
 }
+
+/* Navigation */
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
 }
+
+/* Part 2 in Navigation */
 .part2 {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
 }
+
 nav h1 {
     font-size: 30px;
     font-weight: 600;
 }
+
 nav h1 i {
-    rotate: 45deg;
+    transform: rotate(45deg);
     display: inline-block;
 }
+
 nav h4 {
     font-size: 18px;
     font-weight: 500;
 }
+
 nav button {
-    padding:12px 20px;
-    font-size:18px;
+    padding: 12px 20px;
+    font-size: 18px;
     background-color: transparent;
     border-radius: 10px;
     font-weight: 600;
     border: 2px solid black;
 }
+
+/* Center Content */
 .center {
     padding: 20px 40px;
     height: 80%;
     width: 100%;
     display: flex;
+    flex-direction: row;
 }
+
 .center-part1 {
-    
     height: 80%;
     width: 50%;
 }
 
-.center-part1 h1{
-    
+.center-part1 h1 {
     font-size: 60px;
 }
+
 .center-part1 p {
     margin-top: 30px;
     margin-bottom: 25px;
     font-size: 20px;
     width: 95%;
 }
+
 .center-part1 button {
-    
     background-color: black;
     color: white;
     padding: 22px 40px;
@@ -79,33 +91,33 @@ nav button {
     font-weight: 600;
     border: none;
 }
+
 .center-part2 {
     position: relative;
     height: 80%;
     width: 50%;
 }
-.center-part2 img{
 
-      
+.center-part2 img {
     position: absolute;
     padding-bottom: 160px;
     right: 0%;
     width: 70%;
-    ;
- 
 }
+
 .section1bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 60px 35px;
-   
 }
-.section1bottom img{
+
+.section1bottom img {
     height: 60px;
 }
-.section2 .services{
-  
+
+/* Services Section */
+.section2 .services {
     padding: 40px 100px;
     display: flex;
     align-items: center;
@@ -113,17 +125,21 @@ nav button {
     gap: 50px;
     margin-top: 30px;
 }
+
 .services h3 {
-background-color: #9AE975;
-font-weight: 500;
-padding: 10px 12px;
-border-radius: 5px;
-font-size: 60px;
+    background-color: #9AE975;
+    font-weight: 500;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 60px;
 }
+
 .services p {
     width: 70%;
     font-size: 20px;
 }
+
+/* Container */
 .container {
     height: 80%;
     width: 100%;
@@ -132,18 +148,19 @@ font-size: 60px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
- .elem {
-        flex-shrink: 0;
-        margin: 30px 0px;
-        height: 250px;
-        width: 48%;
-        border: 2px solid black;
-        border-radius: 30px;
-       
-        box-shadow: 0px 15px 0 black;
-        padding: 20px 10px;
-        display: flex;
+
+.elem {
+    flex-shrink: 0;
+    margin: 30px 0px;
+    height: 250px;
+    width: 48%;
+    border: 2px solid black;
+    border-radius: 30px;
+    box-shadow: 0px 15px 0 black;
+    padding: 20px 10px;
+    display: flex;
 }
+
 .elem-part1 {
     height: 100%;
     width: 50%;
@@ -151,15 +168,17 @@ font-size: 60px;
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-
 }
+
 .elem-part2 {
     height: 100%;
     width: 50%;
 }
+
 .elem-part2 img {
     height: 100%;
 }
+
 .elem-part1 h2 {
     font-size: 35px;
     padding: 0px 5px;
@@ -167,6 +186,7 @@ font-size: 60px;
     border-radius: 10px;
     font-weight: 500;
 }
+
 .elem-part1 h4 {
     display: flex;
     align-items: center;
@@ -174,6 +194,7 @@ font-size: 60px;
     font-weight: 500;
     gap: 20px;
 }
+
 .elem-part1 h4 i {
     background-color: black;
     color: white;
@@ -181,16 +202,124 @@ font-size: 60px;
     border-radius: 50%;
     font-weight: 900;
 }
+
 .black {
     background-color: black;
 }
+
 .black h4 {
     color: white;
 }
+
+/* Media Queries for Responsive Design */
+
+/* Mobile Devices: */
 @media (max-width: 768px) {
-  nav .part2 {
-      display:hidden;
-}
+    /* Navigation Changes */
     nav {
-        background-color:red;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #f4f4f4; /* background color for mobile */
     }
+
+    nav h1 {
+        font-size: 24px;
+    }
+
+    nav button {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    nav .part2 {
+        display: none; /* Hide part2 on small screens */
+    }
+
+    /* Center Content Adjustments */
+    .center {
+        flex-direction: column;
+    }
+
+    .center-part1 {
+        width: 100%;
+    }
+
+    .center-part2 {
+        width: 100%;
+    }
+
+    .center-part2 img {
+        position: relative;
+        width: 100%;
+        padding-bottom: 40px;
+    }
+
+    /* Service Section Adjustments */
+    .services {
+        flex-direction: column;
+        padding: 20px 40px;
+        margin-top: 20px;
+    }
+
+    .services h3 {
+        font-size: 40px;
+    }
+
+    .services p {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    /* Container Layout Adjustments */
+    .container {
+        padding: 20px 40px;
+    }
+
+    .elem {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Footer Changes */
+    footer {
+        padding: 20px 0;
+    }
+}
+
+/* Tablets and Larger Devices (768px and above) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .center {
+        flex-direction: row;
+    }
+
+    .center-part1 {
+        width: 60%;
+    }
+
+    .center-part2 {
+        width: 40%;
+    }
+
+    .services h3 {
+        font-size: 50px;
+    }
+
+    .elem {
+        width: 48%;
+    }
+}
+
+/* Desktop Layout (above 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        padding: 40px 120px;
+    }
+
+    .services {
+        padding: 40px 100px;
+    }
+
+    .elem {
+        width: 48%;
+    }
+}
